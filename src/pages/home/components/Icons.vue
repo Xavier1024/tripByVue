@@ -24,7 +24,8 @@ export default {
       swiperOption: {
         pagination: {
           el: '.swiper-pagination'
-        }
+        },
+        loop: true
       }
     }
   },
@@ -33,15 +34,16 @@ export default {
   },
   computed: {
     list () {
-      const res = []
-      for (let i in this.iconList) {
-        const k = Math.floor(i / 8)
-        if (!res[k]) {
-          res[k] = []
+      const pages = []
+      this.iconList.forEach((item, index) => {
+        const page = Math.floor(index / 8)
+        if (!pages[page]) {
+          pages[page] = []
         }
-        res[k].push(this.iconList[i])
-      }
-      return res
+        pages[page].push(item)
+      })
+
+      return pages
     }
   }
 }
@@ -49,6 +51,7 @@ export default {
 
 <style scoped lang="stylus">
   @import "~styles/variable.styl"
+  @import "~styles/mixins.styl"
   .icons >>> .swiper-pagination-bullet-active
     background-color $bgColor !important
   .icons
@@ -74,6 +77,7 @@ export default {
       .icon-title
         text-align center
         line-height .4rem
+        ellipsis()
   .location-wrapper
     display flex
     height 1rem

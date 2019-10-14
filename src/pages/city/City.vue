@@ -3,7 +3,8 @@
     <!-- <div v-test>{{msg | filter1}}</div> -->
     <!-- <div :class="{active: isActive, 'text-danger': hasError}" :style="{}"></div> -->
 <city-header></city-header>
-      <city-header-tab></city-header-tab>
+<city-search></city-search>
+    <city-header-tab></city-header-tab>
 
     <city-list :hotCities="hotCities" :cities="cities"></city-list>
   </div>
@@ -11,6 +12,7 @@
 
 <script>
 import CityHeader from './components/Header'
+import CitySearch from './components/Search'
 import CityHeaderTab from './components/HeaderTab'
 import CityList from './components/List'
 import ApiUrl from '@/config/api_url'
@@ -47,7 +49,8 @@ export default {
   components: {
     CityHeader,
     CityHeaderTab,
-    CityList
+    CityList,
+    CitySearch
   },
   beforeRouteEnter (to, from, next) {
     console.log('beforeRouteEnter')

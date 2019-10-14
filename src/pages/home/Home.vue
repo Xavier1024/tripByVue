@@ -16,7 +16,7 @@ import HomeIcons from './components/Icons'
 import HomeHot from './components/Hot'
 import HomeYoulike from './components/Youlike'
 import HomeWeekends from './components/Weekends'
-import ApiUrl from '@/config/api_url'
+// import ApiUrl from '@/config/api_url'
 import axios from 'axios'
 
 export default {
@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     getHomeInfo () {
-      axios.get(ApiUrl.api + 'index.json')
+      axios.get('/api/' + 'index.json')
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
