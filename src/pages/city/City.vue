@@ -3,7 +3,7 @@
     <!-- <div v-test>{{msg | filter1}}</div> -->
     <!-- <div :class="{active: isActive, 'text-danger': hasError}" :style="{}"></div> -->
 <city-header></city-header>
-<city-search></city-search>
+<city-search :cities="cities"></city-search>
     <city-header-tab></city-header-tab>
 
     <city-list :hotCities="hotCities" :cities="cities"></city-list>
@@ -23,7 +23,7 @@ export default {
   data () {
     return {
       hotCities: [],
-      cities: [],
+      cities: {},
       msg: 'helloworld',
       view: true
     }

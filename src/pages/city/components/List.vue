@@ -1,19 +1,25 @@
 <template>
   <div class="list">
     <div class="list-item">
-      <div class="title">热门城市</div>
+      <div class="title border-topbottom">当前城市</div>
+      <div class="item-wrapper">
+        <div class="item">{{city}}</div>
+      </div>
+    </div>
+    <div class="list-item">
+      <div class="title border-topbottom">热门城市</div>
       <div class="item-wrapper">
         <div class="item" v-for="item in hotCities" :key="item.id" @click="handleCityChange(item.name)">{{item.name}}</div>
       </div>
     </div>
     <div class="list-item alphabet">
-      <div class="title">字母排序</div>
+      <div class="title border-topbottom">字母排序</div>
       <div class="item-wrapper">
         <div class="item" v-for="item in alphabet" :key="item" @click="alphaIndex(item)">{{item}}</div>
       </div>
     </div>
     <div class="list-item city" v-for="(item, index) in cities" :key="index" :ref="'alpha-' + index">
-      <div class="title">{{index}}</div>
+      <div class="title border-topbottom">{{index}}</div>
       <div class="item-wrapper">
         <div class="item" v-for="city in item" :key="city.id" @click="handleCityChange(city.name)">{{city.name}}</div>
         <div class="bt"></div>
@@ -23,7 +29,7 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import {mapMutations, mapState} from 'vuex'
 export default {
   name: 'CityList',
   props: {
@@ -37,7 +43,8 @@ export default {
         res.push(k)
       }
       return res
-    }
+    },
+    ...mapState(['city'])
   },
   methods: {
     alphaIndex (index) {
@@ -63,6 +70,7 @@ export default {
         padding-left .2rem
         line-height .72rem
         height .72rem
+        color: #666
       .item-wrapper
         display flex
         flex-wrap wrap
