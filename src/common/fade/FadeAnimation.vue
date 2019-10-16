@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Fade'
+  name: 'FadeAnimation'
 }
 </script>
 
@@ -14,6 +14,6 @@ export default {
   .v-enter, .v-leave-to
     opacity 0
 
-  .v-enter-active
+  .v-enter-active, .v-leave-active
     transition opacity .5s
 </style>

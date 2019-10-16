@@ -3,15 +3,15 @@
     <div class="item" v-for="(item, index) in imgList" :key="index">
       <img :src="item" @click="handleListClick(index)">
     </div>
-    <fade>
+    <fade-animation>
       <Gallery :currentImg="currentImg" :imgs="imgList" v-show="galleryShow" @close="galleryShow = false"></Gallery>
-    </fade>
+    </fade-animation>
   </div>
 </template>
 
 <script>
 import Gallery from '@/common/gallery/Gallery'
-import Fade from '@/common/fade/Fade'
+import FadeAnimation from '@/common/fade/FadeAnimation'
 export default {
   name: 'ImgsList',
   data () {
@@ -40,7 +40,7 @@ export default {
   },
   components: {
     Gallery,
-    Fade
+    FadeAnimation
   },
   methods: {
     handleListClick: function (index) {

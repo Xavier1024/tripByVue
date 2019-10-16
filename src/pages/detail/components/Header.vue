@@ -14,16 +14,20 @@
         <div class="info">故宫(AAAAA景区)</div>
       </div>
     </div>
-    <common-gallery :imgs="imgs" :currentImg="1" v-show="showGallery" @close="closeGallery"></common-gallery>
+    <fade-animation>
+      <common-gallery :imgs="imgs" :currentImg="1" v-show="showGallery" @close="closeGallery"></common-gallery>
+    </fade-animation>
   </div>
 </template>
 
 <script>
 import CommonGallery from 'common/gallery/Gallery'
+import FadeAnimation from 'common/fade/FadeAnimation'
 export default {
   name: 'DetailHeader',
   components: {
-    CommonGallery
+    CommonGallery,
+    FadeAnimation
   },
   data () {
     return {
@@ -67,7 +71,7 @@ export default {
   width: 100%;
   height: 0;
   padding-bottom: 55%;
-  position relative
+  position: relative;
   overflow: hidden;
 
   .detail-img {
